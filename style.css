@@ -1,9 +1,9 @@
 body {
 	margin: 0 auto;
-		width: 100vw;
+	width: 100vw;
 	height: 100vh;
-/*	background: lightblue;
-*/}
+	background: lightblue;
+}
 
 #container {
 
@@ -14,4 +14,16 @@ body {
 	height: 200px;
 	background: url('./pusheen.png');
 	background-size: contain;
+}
+
+.p {
+/*	width: 400px;
+	height: 400px;*/
+	background: white;
+	border: 5px solid black;
+}
+
+.button {
+	width: 100px;
+	background-color: black;
 }
