@@ -1,29 +1,169 @@
+/*make buttons in scenes have larger font*/
+
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+
 body {
 	margin: 0 auto;
 	width: 100vw;
 	height: 100vh;
-	background: lightblue;
+	background: url('./img/livingroom.jpg') no-repeat;
+	background-size: 100%;
+	font-family: 'Berkshire Swash', cursive;
+	font-size: 60px;
 }
 
-#container {
+h1 {
+	font-size: 1em;
+	line-height: .5;
+}
 
+
+h2 {
+	font-size: .75em;
+	margin-left: 1em;
+	line-height: .5;
+}
+
+button {
+	margin: 0 auto;
+	border-radius: 30%;
+	border: none;
+	background: white;
+	width: 25em;
+	height: 5em;
+	margin: 1em 0 0 1em;
+}
+
+button a {
+		text-decoration: none;
+		font-size: 3em;
+}
+
+button p {
+	font-size: 1em;
+}
+
+#title {
+	margin: 2em;
 }
 
 .qwerty {
-	width: 200px;
-	height: 200px;
-	background: url('./pusheen.png');
+	width: 5em;
+	height: 5em;
+	background: url('./img/pusheen.png');
 	background-size: contain;
+	margin: .5em 0 0 1em;
+	position: relative;
 }
 
-.p {
-/*	width: 400px;
-	height: 400px;*/
-	background: white;
-	border: 5px solid black;
+p {
+	
 }
 
-.button {
-	width: 100px;
-	background-color: black;
+#buttons {
+	text-align: center;
+}
+
+#title {
+
+}
+
+.active-scene {
+	text-align: center;
+	margin-top: 2em;
+}
+
+@media only screen and (min-width: 400px) and (min-height: 150px) {
+	h1 {
+		font-size: .5em;
+		line-height: 1;
+		margin-top: 10px;
+	}
+	h2 {
+		font-size: .25em;
+		line-height: 1;
+	}
+	p {
+		font-size: .5em;
+		margin: 0;
+	}
+	button a {
+		font-size: 2em;
+	}
+}
+
+@media only screen and (min-width: 550px) {
+	h1 {
+		font-size: .75em;
+		line-height: 1;
+		margin-top: 10px;
+	}
+	h2 {
+		font-size: .45em;
+		line-height: 1;
+	}
+	p {
+		font-size: .6em;
+	}
+}
+
+@media only screen and (min-width: 650px) {
+	h1 {
+		font-size: 1em;
+		line-height: 1;
+		margin-top: 10px;
+	}
+	h2 {
+		font-size: .60em;
+		line-height: 1;
+	}
+	p {
+		font-size: .7em;
+	}
+
+}
+
+@media only screen and (min-width: 750px) {
+	h1 {
+		font-size: 1.2em;
+		line-height: 1;
+		margin-top: 10px;
+	}
+	h2 {
+		font-size: .85em;
+		line-height: 1;
+	}
+	p {
+		font-size: .8em;
+	}
+}
+
+@media only screen and (min-width: 850px) {
+	h1 {
+		font-size: 1.5em;
+		line-height: 1;
+		margin-top: 10px;
+	}
+	h2 {
+		font-size: 1em;
+		line-height: 1;
+	}
+	p {
+		font-size: .9em;
+	}
+}
+
+@media only screen and (min-width: 950px) {
+	h1 {
+		font-size: 1.6em;
+		line-height: 1;
+		margin-top: 10px;
+	}
+	h2 {
+		font-size: 1.25em;
+		line-height: 1;
+	}
+	p {
+		font-size: 1em;
+	}
 }
