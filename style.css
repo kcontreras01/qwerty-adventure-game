@@ -10,43 +10,6 @@ body {
 	background-color: lightblue;
 	font-family: 'Berkshire Swash', cursive;
 	font-size: 60px;
-	background-size: 100%;
-/*	background-position:center;
-*/}
-
-h1 {
-	font-size: 1em;
-	line-height: .5;
-}
-
-
-h2 {
-	font-size: .75em;
-	margin-left: 1em;
-	line-height: .5;
-}
-
-button {
-	margin: 0 auto;
-	border-radius: 30%;
-	border: none;
-	background: white;
-/*	width: 25em;
-	height: 5em;*/
-	margin: 1em 0 0 1em;
-}
-
-button a {
-		text-decoration: none;
-		font-size: 3em;
-}
-
-button p {
-	font-size: 1em;
-}
-
-#title {
-	margin: 2em;
 }
 
 .qwerty {
@@ -55,58 +18,94 @@ button p {
 	background: url('./img/pusheen.png');
 	background-size: contain;
 	margin: .5em 0 0 1em;
-	position: relative;
+	position: absolute;
+	/*Keeps qwerty in one spot*/
+	top: 480px;
+	left: 50px;
+/*	animation: 10s move linear forwards;
+*/}
+
+.qwerty.stand {
+	background: url('./img/standingpusheen.png') no-repeat;
+	top: 520px;
+	left: 70px;
+	margin: .5em 0 0 1em;
+
 }
 
-p {
-	
-}
+@keyframes move {
+	0% {
+		left: 50px;
+		top: 480px;
+	}
+	50% {
+		left: 1000px;
+		transform: rotateY(180deg);
+	}
+	100% {
+		left: 50px;
+		top: 480px;
+	}
 
-#buttons {
+}
+@media only screen and (min-width: 400px) and (min-height: 150px) {
+	.title {
+		margin: 2em;
+	}
+	.buttons {
 	text-align: center;
-}
-
-#title {
-
-}
-
-.active-scene {
+	}	
+	.active-scene {
 	text-align: center;
 	margin-top: 2em;
-}
-
-@media only screen and (min-width: 400px) and (min-height: 150px) {
+	margin-left: .2em;
+	}
 	body {
 		background-size: 520px 900px;
-		}
+	}
+	button {
+		margin: 0 auto;
+		border-radius: 30%;
+		border: none;
+		background: white;
+		margin: 1em 0 0 1em;
+	}
 	h1 {
-		font-size: .5em;
+		font-size: .75em;
 		line-height: 1;
 		margin-top: 10px;
 	}
 	h2 {
-		font-size: .25em;
+		font-size: .5em;
 		line-height: 1;
+	}
+	h3 {
+		font-size: .55em
 	}
 	p {
 		font-size: .5em;
 		margin: 0;
 	}
+	.p {
+		font-size: .5em;
+	}
 	button a {
 		font-size: 2em;
+		text-decoration: none;
 	}
-/*	button {
+	button p {
+		font-size: 1em;
+	}
+	button {
 		width: 8em;
-		height: 4em;
-	}*/
+		height: 3em;
+	}
 }
 
 @media only screen and (min-width: 550px) {
 	body {
 		background-size:contain;
-/*		background-position:center;
-*/		background-size: 600px 900px;
-
+		background-size: 600px 900px;
   }
 	h1 {
 		font-size: .75em;
@@ -117,13 +116,19 @@ p {
 		font-size: .45em;
 		line-height: 1;
 	}
+	h3 {
+		font-size: .65em
+	}
 	p {
 		font-size: .6em;
 	}
-/*	button {
+	.p {
+		font-size: .6em;
+	}
+	button {
 		width: 10em;
-		height: 5em;
-	}*/
+		height: 3em;
+	}
 }
 
 @media only screen and (min-width: 650px) {
@@ -139,13 +144,19 @@ p {
 		font-size: .60em;
 		line-height: 1;
 	}
+	h3 {
+		font-size: .75em
+	}
 	p {
 		font-size: .7em;
 	}
-/*	button {
-		width: 11em;
-		height: 6em;
-	}*/
+	.p {
+		font-size: .7em;
+	}
+	button {
+		width: 15em;
+		height: 4em;
+	}
 }
 
 @media only screen and (min-width: 750px) {
@@ -161,13 +172,19 @@ p {
 		font-size: .85em;
 		line-height: 1;
 	}
+	h3 {
+		font-size: .85em
+	}
 	p {
 		font-size: .8em;
 	}
-/*	button {
-		width: 12em;
-		height: 7em;
-	}*/
+	.p {
+		font-size: .8em;
+	}
+	button {
+		width: 20em;
+		height: 5em;
+	}
 }
 
 @media only screen and (min-width: 850px) {
@@ -183,12 +200,18 @@ p {
 		font-size: 1em;
 		line-height: 1;
 	}
+	h3 {
+		font-size: .95em
+	}
 	p {
 		font-size: .9em;
 	}
+	.p {
+		font-size: .9em;
+	}
 	button {
-		width: 13em;
-		height: 8em;
+		width: 25em;
+		height: 5em;
 	}
 }
 
@@ -205,11 +228,13 @@ p {
 		font-size: 1.25em;
 		line-height: 1;
 	}
+	h3 {
+		font-size: 1.3em
+	}
 	p {
 		font-size: 1em;
 	}
-	button {
-		width: 25em;
-		height: 5em;
+	.p {
+		font-size: 1em;
 	}
 }
