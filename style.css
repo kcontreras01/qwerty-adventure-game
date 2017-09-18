@@ -1,5 +1,3 @@
-/*make buttons in scenes have larger font*/
-
 @import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
 
 body {
@@ -10,6 +8,21 @@ body {
 	background-color: lightblue;
 	font-family: 'Berkshire Swash', cursive;
 	font-size: 60px;
+	cursor: default;
+}
+
+button a {
+	font-family: 'Berkshire Swash', cursive;
+}
+
+#volume {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+  width: 40px;
 }
 
 .qwerty {
@@ -19,33 +32,37 @@ body {
 	background-size: contain;
 	margin: .5em 0 0 1em;
 	position: absolute;
-	/*Keeps qwerty in one spot*/
-	top: 480px;
-	left: 50px;
 /*	animation: 10s move linear forwards;
 */}
 
 .qwerty.stand {
 	background: url('./img/standingpusheen.png') no-repeat;
-	top: 520px;
-	left: 70px;
+	background-size: 60%;
 	margin: .5em 0 0 1em;
-
 }
 
+.p {
+	font-size: .3em;
+	text-align: center;
+	padding: 15px;
+	border-radius: 30%;
+  background: white;
+	display: inline-block;
+	float: left;
+}
 @keyframes move {
 	0% {
 		left: 50px;
 		top: 480px;
 	}
-	50% {
-		left: 1000px;
-		transform: rotateY(180deg);
-	}
 	100% {
+		left: 500px;
+/*		transform: rotateY(180deg);
+*/	}
+/*	100% {
 		left: 50px;
 		top: 480px;
-	}
+	}*/
 
 }
 @media only screen and (min-width: 400px) and (min-height: 150px) {
@@ -60,10 +77,22 @@ body {
 	margin-top: 2em;
 	margin-left: .2em;
 	}
-	body {
-		background-size: 520px 900px;
+	.qwerty {
+		top: 540px;
+		left: 5px;
 	}
-	button {
+	.qwerty.stand {
+		top: 590px;
+		left: 45px;
+	}
+	.p {
+		margin: 1em;
+		font-size: .5em;
+	}
+	body {
+		background-size: 520px 1000px;
+	}
+	button{
 		margin: 0 auto;
 		border-radius: 30%;
 		border: none;
@@ -86,15 +115,13 @@ body {
 		font-size: .5em;
 		margin: 0;
 	}
-	.p {
-		font-size: .5em;
-	}
 	button a {
-		font-size: 2em;
+		font-size: 1.2em;
 		text-decoration: none;
 	}
 	button p {
-		font-size: 1em;
+		color: red;
+		font-size: 10em;
 	}
 	button {
 		width: 8em;
@@ -105,7 +132,7 @@ body {
 @media only screen and (min-width: 550px) {
 	body {
 		background-size:contain;
-		background-size: 600px 900px;
+		background-size: 600px 1000px;
   }
 	h1 {
 		font-size: .75em;
@@ -122,18 +149,21 @@ body {
 	p {
 		font-size: .6em;
 	}
-	.p {
+/*	.p {
 		font-size: .6em;
-	}
+	}*/
 	button {
 		width: 10em;
 		height: 3em;
+	}
+	button a {
+		font-size: 1.8em;
 	}
 }
 
 @media only screen and (min-width: 650px) {
 	body {
-		background-size: 700px 900px;
+		background-size: 700px 1000px;
 	}
 	h1 {
 		font-size: 1em;
@@ -150,9 +180,9 @@ body {
 	p {
 		font-size: .7em;
 	}
-	.p {
+/*	.p {
 		font-size: .7em;
-	}
+	}*/
 	button {
 		width: 15em;
 		height: 4em;
@@ -161,7 +191,7 @@ body {
 
 @media only screen and (min-width: 750px) {
 	body {
-		background-size: 800px 900px;
+		background-size: 800px 1000px;
   }
 	h1 {
 		font-size: 1.2em;
@@ -179,17 +209,20 @@ body {
 		font-size: .8em;
 	}
 	.p {
-		font-size: .8em;
+		margin: 2em;
 	}
 	button {
 		width: 20em;
 		height: 5em;
 	}
+	button a {
+		font-size: 2em;
+	}
 }
 
 @media only screen and (min-width: 850px) {
 	body {
-		background-size: 900px 900px;
+		background-size: 900px 1000px;
 	}
 	h1 {
 		font-size: 1.5em;
@@ -206,9 +239,6 @@ body {
 	p {
 		font-size: .9em;
 	}
-	.p {
-		font-size: .9em;
-	}
 	button {
 		width: 25em;
 		height: 5em;
@@ -217,7 +247,7 @@ body {
 
 @media only screen and (min-width: 950px) {
 	body {
-		background-size: 1440px 900px;
+		background-size: 1440px 1000px;
   }
 	h1 {
 		font-size: 1.6em;
@@ -234,7 +264,24 @@ body {
 	p {
 		font-size: 1em;
 	}
-	.p {
-		font-size: 1em;
+	button a {
+		font-size: 2.5em;
 	}
+	.qwerty {
+		top: 550px;
+		left: 50px;
+	}
+	.qwerty.stand {
+		top: 590px;
+		left: 90px;
+	}
+	.p {
+		margin: 3em 0 0 10em;
+
+	}
+}
+@media only screen and (min-width: 1200px) {
+	body {
+		background-size: 100%;
+  }
 }

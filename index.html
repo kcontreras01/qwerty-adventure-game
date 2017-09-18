@@ -3,6 +3,7 @@
 <head>
 	<title>Qwerty the Cat</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
 	<script
   src="https://code.jquery.com/jquery-3.2.1.js"
   integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
@@ -17,9 +18,11 @@
 				<div class="buttons">
 					<button><a href="game.html">Start Game</a></button>
 					<button><a href="instructions.html">Instructions</a></button>
-<!-- 					<audio>
-						<source src=“./ChibiNinja.mp3” type="audio/mpeg" hidden="true" autoplay></embed>
-			</audio> -->
+					<audio id="audio" autoplay loops>
+      				<source src="ChibiNinja.mp3" type="audio/mpeg">
+    			</audio>
+       		<a href="#" id="volume" class="fa fa-volume-up"></a>
+
 				</div>
 		</div>
 	</div>

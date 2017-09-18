@@ -3,13 +3,27 @@
 $(function(){
 // var gameStart = new Audio('ChibiNinja.mp3');
 // gameStart.play();
+  
+ $("#volume").on("click", function(evt) {
+   evt.stopPropagation(); 
+   $(this).toggleClass("fa-volume-up");
+   $(this).toggleClass("fa-volume-off");
+
+   // $("#audio")[0].pause();
+   if ($(this).hasClass("fa-volume-off")){
+   	document.getElementById("audio").pause();
+   }
+   else {
+    document.getElementById("audio").play();
+   }
+  });
 
 var scenes = [
 	{
 		id: 1,
 		name: 'Start',
 		text: "Qwerty is awoken by a rumbling belly. As she looks at the clock it's currently 5am. She has two options, wake up the human or search around the apartment.",
-		background: './img/livingroom.jpg',
+		background: '',
 		choice: [{
 			answer: "Wake my human",
 			scene: "End",
@@ -24,6 +38,7 @@ var scenes = [
 		name: 'Couch',
 		text: 'Qwerty gets up and looks around. She smells underneath the couch and finds a suspicious fuzzy cookie. How long has this been here?',
 		background: '',
+		qwerty: './img/donut.png',
 		choice: [{
 			answer: "Eat the cookie",
 			scene: "Sick",
@@ -43,7 +58,7 @@ var scenes = [
 			scene: "Pizza",
 			},
 			{
-			answer: "Avoid human.",
+			answer: "Avoid human",
 			scene: 'Food',
 		}]  
 	},
@@ -116,7 +131,11 @@ function addQwerty(){
 
 	setInterval(function(){
     $(qwerty).toggleClass("stand");
-	}, 500);
+	}, 1000);
+
+	// setTimeout(function(){
+	// 	$(qwerty).toggleClass('stand').off();
+	// } 10000);
 }
 
 addQwerty();
@@ -130,17 +149,29 @@ function makeScene3(sceneName){
 	var $activeScene = $("<div></div")
 													.appendTo($scene)
 													.addClass("active-scene")
-													// .css("background","url('myScene.background')")
+													// .css("background",`url(${myScene.background})`)
+													.css(".qwerty",`url(${myScene.qwerty})`)
 	$("<p></p>").appendTo($activeScene).text(myScene.text);
 	var answerObjs = getAnswersBySceneName2(sceneName);
 	for (var i in answerObjs){
 		var answerObj = answerObjs[i];
-		var $button = $("<button></button>")
+		//var $button = $("<button></button>")
+		//									.appendTo($activeScene);
+		var $mydiv = $("<div></div>")
 											.appendTo($activeScene)
+											.addClass("p")
+
+		var $ptag = $("<p></p>")
+											
 											.attr("next-scene", answerObj.scene)
-											.text(answerObj.answer)									
-											.click(sceneClick);
+											.text(answerObj.answer)
+											.click(sceneClick)
+											.appendTo($mydiv);
+
+		//$ptag.wrap("<div></div>");
+		//$ptag.appendto($activeScene);
 		// $(answerObj).addClass('p');
+		// if a p tag is added inside the button tag the font can be resized
 	}
 }
 
