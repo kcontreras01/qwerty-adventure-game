@@ -2,6 +2,12 @@
 :cat::cat::cat:
 
 ###Explanations of the technologies used
+Qwerty the Cat lives for snacks. Help Qwerty get around the house to find leftovers. Watch out for Qwerty's human catching you! Text prompts will either help or hinder you in the journey.
+
+###Rules:
+
+Choose from multiple options when prompted to move forward in the game.
+Single player.
 
 ###Wireframes
 

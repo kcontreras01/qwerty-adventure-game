@@ -1,17 +1,10 @@
-//make qwerty change with imgs
-//make last scene change
-//add volume to game
-
 $(function(){
-// var gameStart = new Audio('ChibiNinja.mp3');
-// gameStart.play();
   
 $("#volume").on("click", function(evt) {
    evt.stopPropagation(); 
    $(this).toggleClass("fa-volume-up");
    $(this).toggleClass("fa-volume-off");
 
-   // $("#audio")[0].pause();
    if ($(this).hasClass("fa-volume-off")){
    	document.getElementById("audio").pause();
   }
@@ -164,8 +157,6 @@ var scenes = [
 
 function addQwerty(){
 	//add character to page
-	 // var qwerty = $('<div class="qwerty"></div>');
-  //  document.body.append(qwerty);
 	var qwerty = document.createElement('div');
 	qwerty.classList.add('qwerty');
 	document.body.append(qwerty);
@@ -173,13 +164,7 @@ function addQwerty(){
 	setInterval(function(){
     $(qwerty).toggleClass("stand");
 	}, 1000);
-
-	// setTimeout(function(){
-	// 	$(qwerty).toggleClass('stand').off();
-	// } 10000);
 }
-
-addQwerty();
 
 //this function adds a div, appends it to the scene, makes that scene active, and creates 
 // answer buttons with their text inside.
@@ -190,31 +175,21 @@ function makeScene3(sceneName){
 	var myScene = getSceneByName(sceneName);
 	var $scene = $(".scene");
 	var $activeScene = $("<div></div")
-													.appendTo($scene)
-													.addClass("active-scene")
-													// .css("background",`url(${myScene.background})`)
-													// .addClass('cookie')
+			.appendTo($scene)
+			.addClass("active-scene")
 	$("<p></p>").appendTo($activeScene).text(myScene.text);
 	var answerObjs = getAnswersBySceneName2(sceneName);
 	for (var i in answerObjs){
 		var answerObj = answerObjs[i];
-		//var $button = $("<button></button>")
-		//									.appendTo($activeScene);
 		var $mydiv = $("<div></div>")
-											.appendTo($activeScene)
-											.addClass("p")
+			.appendTo($activeScene)
+			.addClass("p")
 
-		var $ptag = $("<p></p>")
-											
-											.attr("next-scene", answerObj.scene)
-											.text(answerObj.answer)
-											.click(sceneClick)
-											.appendTo($mydiv);
-
-		//$ptag.wrap("<div></div>");
-		//$ptag.appendto($activeScene);
-		// $(answerObj).addClass('p');
-		// if a p tag is added inside the button tag the font can be resized
+		var $ptag = $("<p></p>")									
+			.attr("next-scene", answerObj.scene)
+			.text(answerObj.answer)
+			.click(sceneClick)
+			.appendTo($mydiv);
 	}
 }
 
@@ -234,16 +209,16 @@ function sceneClick(){
 });
 
 	if (found.length > 0 && found[0].name === "Win"){
-		var qwerty = $('.qwerty');
-		qwerty.remove();
-
-		var stand = $('.qwerty.stand');
-		stand.remove();
-
 		var win = $('<div></div>')
 		$('body').append(win)
 			.addClass('cookie');
-	}
+  	$( ".qwerty" ).animate({
+			left: "800px"
+  	}, 1500 );
+   	$( ".qwerty" ).animate({
+			left: "0px"
+  	}, 1500 );
+	};
 }
 
 
@@ -258,7 +233,6 @@ function chooseFirstScene(){
 		 console.log(choiceObj.answer);
 	}
 }
-
 
 //connects scene answers to next scene with same name
 function getSceneByName(sceneName){
@@ -285,6 +259,7 @@ function getAnswersBySceneName2(sceneName){
 	return result;
 }
 
+addQwerty();
 makeScene3('Start');
 
 });
