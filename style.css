@@ -22,7 +22,14 @@ button a {
   font-size: 40px;
   color: white;
   text-decoration: none;
-  width: 40px;
+  width: 50px;
+  height: 50px;
+}
+
+.win {
+	background: url('.img/noodles.png');
+	width: 5em;
+	height: 5em;
 }
 
 .qwerty {
@@ -34,6 +41,16 @@ button a {
 	position: absolute;
 /*	animation: 10s move linear forwards;
 */}
+
+.cookie {
+	background: url('./img/eats.png') repeat;
+	margin: 0 auto;
+}
+
+#win {
+	height: 1.5em;
+	width: 1.5em;
+}
 
 .qwerty.stand {
 	background: url('./img/standingpusheen.png') no-repeat;
@@ -50,22 +67,9 @@ button a {
 	display: inline-block;
 	float: left;
 }
-@keyframes move {
-	0% {
-		left: 50px;
-		top: 480px;
-	}
-	100% {
-		left: 500px;
-/*		transform: rotateY(180deg);
-*/	}
-/*	100% {
-		left: 50px;
-		top: 480px;
-	}*/
 
-}
-@media only screen and (min-width: 400px) and (min-height: 150px) {
+
+@media only screen and (min-width: 200px) {
 	.title {
 		margin: 2em;
 	}
@@ -74,8 +78,9 @@ button a {
 	}	
 	.active-scene {
 	text-align: center;
-	margin-top: 2em;
-	margin-left: .2em;
+	margin: 2em .2em 0 .2em;
+	background: lightcyan;
+	border-radius: 10%;
 	}
 	.qwerty {
 		top: 540px;
@@ -86,18 +91,24 @@ button a {
 		left: 45px;
 	}
 	.p {
-		margin: 1em;
+		margin: 1.3em 4em;
+		background: #AFEEEE;
 		font-size: .5em;
 	}
 	body {
 		background-size: 520px 1000px;
 	}
-	button{
+	button {
 		margin: 0 auto;
 		border-radius: 30%;
 		border: none;
 		background: white;
-		margin: 1em 0 0 1em;
+		width: 8em;
+		height: 3em;
+	}
+	button a {
+		font-size: 1.2em;
+		text-decoration: none;
 	}
 	h1 {
 		font-size: .75em;
@@ -114,18 +125,6 @@ button a {
 	p {
 		font-size: .5em;
 		margin: 0;
-	}
-	button a {
-		font-size: 1.2em;
-		text-decoration: none;
-	}
-	button p {
-		color: red;
-		font-size: 10em;
-	}
-	button {
-		width: 8em;
-		height: 3em;
 	}
 }
 
@@ -149,9 +148,6 @@ button a {
 	p {
 		font-size: .6em;
 	}
-/*	.p {
-		font-size: .6em;
-	}*/
 	button {
 		width: 10em;
 		height: 3em;
@@ -180,9 +176,6 @@ button a {
 	p {
 		font-size: .7em;
 	}
-/*	.p {
-		font-size: .7em;
-	}*/
 	button {
 		width: 15em;
 		height: 4em;
@@ -277,7 +270,12 @@ button a {
 	}
 	.p {
 		margin: 3em 0 0 10em;
+	}
+}
 
+@media only screen and (min-width: 950px) {
+	.p {
+		margin: 2em 0 0 11em;
 	}
 }
 @media only screen and (min-width: 1200px) {

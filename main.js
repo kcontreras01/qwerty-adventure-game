@@ -1,10 +1,12 @@
 //make qwerty change with imgs
+//make last scene change
+//add volume to game
 
 $(function(){
 // var gameStart = new Audio('ChibiNinja.mp3');
 // gameStart.play();
   
- $("#volume").on("click", function(evt) {
+$("#volume").on("click", function(evt) {
    evt.stopPropagation(); 
    $(this).toggleClass("fa-volume-up");
    $(this).toggleClass("fa-volume-off");
@@ -12,11 +14,11 @@ $(function(){
    // $("#audio")[0].pause();
    if ($(this).hasClass("fa-volume-off")){
    	document.getElementById("audio").pause();
-   }
+  }
    else {
     document.getElementById("audio").play();
-   }
-  });
+  }
+});
 
 var scenes = [
 	{
@@ -37,8 +39,6 @@ var scenes = [
 		id: 2,
 		name: 'Couch',
 		text: 'Qwerty gets up and looks around. She smells underneath the couch and finds a suspicious fuzzy cookie. How long has this been here?',
-		background: '',
-		qwerty: './img/donut.png',
 		choice: [{
 			answer: "Eat the cookie",
 			scene: "Sick",
@@ -52,7 +52,6 @@ var scenes = [
 		id: 3,
 		name: 'Table',
 		text: 'Qwerty avoids the fuzzy cookie and makes her way to the table. The human is sitting there drinking hot bean water. From here she can see food fell under the table.',
-		background: '',
 		choice: [{
 			answer: "Look under the table",
 			scene: "Pizza",
@@ -82,44 +81,86 @@ var scenes = [
 		background: './img/closet.jpg',
 		choice: [{
 			answer: "Paw at the door",
-			scene: "Win",
+			scene: "Cabinet",
 			},
 			{
 			answer: "Meow loudly",
 			scene: 'End',
 		}]  
 	},
-		{
+	{
 		id: 6,
 		name: 'Sick',
-		text: 'Qwerty eats the fuzzy cookie and gets sick! Qwerty gets in trouble and the human has to take you to the vet. Game Over.',
-		background: '', 
+		text: 'Qwerty eats the fuzzy cookie and gets sick! Qwerty gets in trouble and the human has to take you to the vet. Game Over!',
 		choice: [{
 			answer: "Restart",
 			scene: "Start",
 			}],  
 	},
-		{
+	{
 		id: 7,
-		name: 'End',
-		text: "The human catches you and you're in trouble! Game Over",
-		background: '',
+		name: 'Cabinet',
+		text: "Qwerty makes her way out of the closet to continue her search. From here she can see the large china cabinet and wonders if there is ever any food up there.",
 		choice: [{
-			answer: "Restart",
-			scene: "Start",
-			}],  
-		},
+			answer: "Jump on the cabinet",
+			scene: "End",
+			},
+			{
+			answer: "Look under the bed",
+			scene: 'Bed',
+		}]  
+	},
 	{
 		id: 8,
-		name: 'Win',
-		text: 'Qwerty gets her fill of food and falls asleep again. What an awesome day.',
-		background: '',  
+		name: 'Bed',
+		text: "Qwerty makes her way under the bed on her belly and finds a lonely cracker! She gobbles it up.",
+		choice: [{
+			answer: "Take a nap",
+			scene: "Win",
+			},
+			{
+			answer: "Find more noms",
+			scene: 'Noms',
+		}]  
+	},
+	{
+		id: 9,
+		name: 'Noms',
+		text: "Qwerty is almost full. Just one more snack will satisfy. It's not so early anymore, maybe we can ask the human for food.",
+		choice: [{
+			answer: "Ask my human",
+			scene: "Ask",
+		}], 
+	},
+	{
+		id: 10,
+		name: 'Ask',
+		text: "Qwerty meows softly and makes big eyes at her human. The human give in and Qwerty is fed.",
+		background: '',
+		choice: [{
+			answer: "Take a nap",
+			scene: "Win",
+		}],
+	}, 
+	{
+		id: 11,
+		name: 'End',
+		text: "The human catches you and you're in trouble! Game Over!",
 		choice: [{
 			answer: "Restart",
 			scene: "Start",
-			}],
+		}],  
 	},
-]
+	{
+		id: 12,
+		name: 'Win',
+		text: 'Qwerty gets her fill of food and falls asleep again. What an awesome day.', 
+		choice: [{
+			answer: "Restart",
+			scene: "Start",
+		}],
+	},
+];
 
 function addQwerty(){
 	//add character to page
@@ -143,6 +184,8 @@ addQwerty();
 //this function adds a div, appends it to the scene, makes that scene active, and creates 
 // answer buttons with their text inside.
 function makeScene3(sceneName){
+	$('.cookie').removeClass();
+	// addQwerty();
 	$(".active-scene").remove();
 	var myScene = getSceneByName(sceneName);
 	var $scene = $(".scene");
@@ -150,7 +193,7 @@ function makeScene3(sceneName){
 													.appendTo($scene)
 													.addClass("active-scene")
 													// .css("background",`url(${myScene.background})`)
-													.css(".qwerty",`url(${myScene.qwerty})`)
+													// .addClass('cookie')
 	$("<p></p>").appendTo($activeScene).text(myScene.text);
 	var answerObjs = getAnswersBySceneName2(sceneName);
 	for (var i in answerObjs){
@@ -181,7 +224,27 @@ function sceneClick(){
 	var $button = $(this);
 	var nextScene = $button.attr("next-scene");
 	makeScene3(nextScene);
-};
+
+	var found = scenes.filter(function(elem){
+	if (elem.name === nextScene) {
+		return true;
+	} else {
+		return false;
+	}
+});
+
+	if (found.length > 0 && found[0].name === "Win"){
+		var qwerty = $('.qwerty');
+		qwerty.remove();
+
+		var stand = $('.qwerty.stand');
+		stand.remove();
+
+		var win = $('<div></div>')
+		$('body').append(win)
+			.addClass('cookie');
+	}
+}
 
 
 function chooseFirstScene(){
@@ -194,7 +257,6 @@ function chooseFirstScene(){
 		 var choiceObj = choiceArray[i];
 		 console.log(choiceObj.answer);
 	}
-	//console.log(initScene['text']);
 }
 
 
@@ -221,7 +283,7 @@ function getAnswersBySceneName2(sceneName){
 		result.push(choiceElem);
 	}
 	return result;
-	}
+}
 
 makeScene3('Start');
 
@@ -248,13 +310,6 @@ makeScene3('Start');
 // 			})
 // 		// })
 // 	}
-
-// var scenes = 
-// 	['start', 'Qwerty is awoken by a rumbling belly', "", ["Wake my human", "end", "Look under the couch", 'couch']],
-// 	['couch', 'Qwerty gets on her belly and crawls under the couch. She finds a suspicious fuzzy cookie.', "", ["Eat the cookie", "sick", "Look under the table", 'table']]],
-// 	['table', 'Qwerty avoids the fuzzy cookie and makes her way to the table. The human is sitting there.', "", ["Look under the table", "end", "Avoid human", 'food']]],
-// 	['food', 'Qwerty makes her way to the closet where her food is kept. The human has left it open', "", ["Go in the closet", "win", "Sit outside", 'end']],
-// 	['end', 'Qwerty is in trouble and gets no food', "", 'start'],
 
 // function makeScene(){
 // 		//look through array and make scene
