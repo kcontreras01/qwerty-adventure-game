@@ -5,6 +5,7 @@ body {
 	width: 100vw;
 	height: 100vh;
 	background: url('./img/livingroom.jpg') no-repeat;
+	background-size: cover;
 	background-color: lightblue;
 	font-family: 'Berkshire Swash', cursive;
 	font-size: 60px;
@@ -27,8 +28,6 @@ button a {
 }
 
 .qwerty {
-	width: 5em;
-	height: 5em;
 	background: url('./img/pusheen.png');
 	background-size: contain;
 	margin: .5em 0 0 1em;
@@ -60,10 +59,6 @@ button a {
 	cursor: pointer;
 }
 
-#border {
-
-}
-
 h1 {
 	padding-bottom: 10px;
   border-width: 10px;
@@ -76,27 +71,30 @@ h2 {
 	text-align: center;
 }
 
+
 @media only screen and (min-width: 200px) {
 	.title {
 		margin: 2em;
 	}
 	.buttons {
-	text-align: center;
+		text-align: center;
 	}	
 	.active-scene {
-	text-align: center;
-	margin: 2em .2em 0 .2em;
-	padding: .2em;
-	background: lightcyan;
-	border-radius: 20%;
-	border-style: outset;
+		text-align: center;
+		margin: 2em .2em 0 .2em;
+		padding: .2em;
+		background: lightcyan;
+		border-radius: 20%;
+		border-style: outset;
 	}
 	.qwerty {
-		top: 540px;
+		top: 700px;
 		left: 5px;
+		width: 3em;
+		height: 3em;
 	}
 	.qwerty.stand {
-		top: 590px;
+		top: 730px;
 		left: 45px;
 	}
 	.p {
@@ -273,6 +271,8 @@ h2 {
 	.qwerty {
 		top: 550px;
 		left: 50px;
+		width: 5em;
+		height: 5em;
 	}
 	.qwerty.stand {
 		top: 590px;
