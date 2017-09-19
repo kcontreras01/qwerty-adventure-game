@@ -170,6 +170,7 @@ function addQwerty(){
 // answer buttons with their text inside.
 function makeScene3(sceneName){
 	$('.cookie').removeClass();
+	$('.sick').removeClass();
 	// addQwerty();
 	$(".active-scene").remove();
 	var myScene = getSceneByName(sceneName);
@@ -218,6 +219,12 @@ function sceneClick(){
    	$( ".qwerty" ).animate({
 			left: "0px"
   	}, 1500 );
+	};
+
+		if (found.length > 0 && found[0].name === "Sick"){
+		var sick = $('<div></div>')
+		$('body').append(win)
+			.addClass('sick');
 	};
 }
 
